@@ -1,0 +1,42 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Remove Git-related files
+        run: |
+          find . -type d -name ".git" -exec rm -rf {} \;
+          find . -name ".gitignore" -exec rm -f {} \;
+          find . -name ".gitmodules" -exec rm -f {} \;
+
+      - name: Set up Node.js environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: '12.x'
+
+      - name: Install dependencies and build web app
+        run: |
+          cd /var/lib/jenkins/workspace/sampledev/devcom/web-build
+          npm install
+          npm run npmInstall
+          npm run prod
+
+      - name: Compile fonts in front-arc
+        run: |
+          cd /var/lib/jenkins/workspace/sampledev/devcom/front-arc
+          npm run compile:fonts
+
+      - name: Copy files to code directory
+        run: |
+          cd /var/lib/jenkins/workspace/sampledev/devcom
+          mkdir code
+          cp -rf rewards/cartri/* code
+
+      # Add additional steps for configuration settings, etc.
