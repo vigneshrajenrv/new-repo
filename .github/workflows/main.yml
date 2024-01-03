@@ -25,9 +25,8 @@ jobs:
         with:
           node-version: '12.x'
 
-      - name: Install dependencies and build web app
+      - name: Install dependencies and build
         run: |
-          #cd /var/lib/jenkins/workspace/sampledev/devcom/web-build
           npm install
           npm run npmInstall
           npm run prod
