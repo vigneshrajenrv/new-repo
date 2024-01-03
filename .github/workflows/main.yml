@@ -14,11 +14,11 @@ jobs:
       - name: Checkout the files
         uses: actions/checkout@v2
         
-    #  - name: Remove Git-related files
-    #    run: |
-    #      find . -type d -name ".git" -exec rm -rf {} \;
-     #     find . -name ".gitignore" -exec rm -f {} \;
-     #     find . -name ".gitmodules" -exec rm -f {} \;
+      - name: Remove Git-related files
+        run: |
+          find . -type d -name ".git" -exec rm -rf {} \;
+          find . -name ".gitignore" -exec rm -f {} \;
+          find . -name ".gitmodules" -exec rm -f {} \;
 
       - name: Set up Node.js environment
         uses: actions/setup-node@v3
