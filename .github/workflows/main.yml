@@ -23,23 +23,4 @@ jobs:
       - name: Set up Node.js environment
         uses: actions/setup-node@v3
         with:
-          node-version: '12.x'
-
-      - name: Install dependencies and build
-        run: |
-          npm install
-          npm run npmInstall
-          npm run prod
-
-      - name: Compile fonts in front-arc
-        run: |
-          cd /var/lib/jenkins/workspace/sampledev/devcom/front-arc
-          npm run compile:fonts
-
-      - name: Copy files to code directory
-        run: |
-          cd /var/lib/jenkins/workspace/sampledev/devcom
-          mkdir code
-          cp -rf rewards/cartri/* code
-
-      # Add additional steps for configuration settings, etc.
+          node-version: '12.15.0'
