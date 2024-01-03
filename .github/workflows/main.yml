@@ -27,7 +27,7 @@ jobs:
 
       - name: Install dependencies and build web app
         run: |
-          cd /var/lib/jenkins/workspace/sampledev/devcom/web-build
+          #cd /var/lib/jenkins/workspace/sampledev/devcom/web-build
           npm install
           npm run npmInstall
           npm run prod
