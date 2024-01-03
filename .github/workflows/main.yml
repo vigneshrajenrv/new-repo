@@ -16,7 +16,7 @@ jobs:
         
       - name: Remove Git-related files
         run: |
-          find . -type d -name ".git" -exec rm -rf {} \;
+          
           find . -name ".gitignore" -exec rm -f {} \;
           find . -name ".gitmodules" -exec rm -f {} \;
 
