@@ -21,19 +21,23 @@ jobs:
 
     steps:
       
+      - name: Remove Git-related files
+        run: |
+          find . -name ".git" -exec rm -f {} \;
+          find . -name ".gitignore" -exec rm -f {} \;
+          find . -name ".gitmodules" -exec rm -f {} \;
 
       - name: Set up Node.js environment
-        run: |
-          curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-          export NVM_DIR="$HOME/.nvm"
-          [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-          nvm install 12.15.0
+        uses: actions/setup-node@v3
+        with:
+          node-version: '12.15.0'
 
-      - name: Install dependencies and build
+      - name: Install dependencies and build web app
         run: |
+          cd /release/sprint-45-test/skechers-sfcc-dev/ecom/sfra-webpack-builder
+        
+          npm install 12.15.0
+
           npm install
           npm run npmInstall
-
-      
-
-      
+          npm run prod
