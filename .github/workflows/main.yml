@@ -13,10 +13,7 @@ jobs:
     needs: deploy
 
     steps:
-      - name: Remove Git-related files
-        run: |
-          find . -name '.gitignore' -exec rm -f {} \;
-          find . -name '.gitmodules' -exec rm -f {} \;
+     
 
       - name: Set up Node.js environment
         run: |
