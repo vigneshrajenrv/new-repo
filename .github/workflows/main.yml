@@ -23,8 +23,7 @@ jobs:
       
       - name: Remove Git-related files
         run: |
-          find . -name ".git" -exec rm -f {} \;
-          find . -name ".gitignore" -exec rm -f {} \;
+        
           find . -name ".gitmodules" -exec rm -f {} \;
 
       - name: Set up Node.js environment
