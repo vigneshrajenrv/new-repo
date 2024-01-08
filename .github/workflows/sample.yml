@@ -2,7 +2,7 @@ name: Skechers workflow
 on:
   push:
     branches:
-      - release/sprint-45-test
+      - test
 
 jobs:
   deploy:
