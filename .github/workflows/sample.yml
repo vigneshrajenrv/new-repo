@@ -1,0 +1,14 @@
+name: Skechers workflow
+on:
+  push:
+    branches:
+      - release/sprint-45-test
+
+jobs:
+  deploy:
+    name: Deploy to EC2-server on release/sprint-45-test/ branch push
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the files
+        uses: actions/checkout@v2
